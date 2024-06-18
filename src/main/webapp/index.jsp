@@ -13,6 +13,15 @@
         <input type="password" name="contra" required>
         <br>
         <input type="submit" value="iniciar sesión">
+        <%
+            HttpSession sesion = request.getSession();
+            String mensaje = (String) sesion.getAttribute("mensaje");
+            if(mensaje != null){ %>
+                <p style="color: red"><%=mensaje%></p>
+            <% } %>
+
+
     </form>
+    <a href="registroUsuario.jsp">Registrarme</a>
 </body>
 </html>

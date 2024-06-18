@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import mx.edu.utez.pruebaa.dao.UsuarioDao;
 import mx.edu.utez.pruebaa.model.Usuario;
 
@@ -26,11 +27,15 @@ public class UsuarioServlet extends HttpServlet {
         if(usr.getNombre() == null){
             //Es porque no existe en la base de datos
             System.out.println("El usuario " + nombre + " No existe en la BD");
-            resp.sendRedirect("index.html");
+
+            HttpSession session = req.getSession();
+            session.setAttribute("mensaje","El usuario no existe en la BD");
+
+            resp.sendRedirect("index.jsp");
         }else{
             //Si existe en la base de datos
             System.out.println("El usuario " + nombre + " Si esta en la BD");
-            resp.sendRedirect("usuario.html");
+            resp.sendRedirect("usuario.jsp");
         }
 
 

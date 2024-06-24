@@ -23,5 +23,6 @@
 
     </form>
     <a href="registroUsuario.jsp">Registrarme</a>
+    <a href="gestionUsuario.jsp">Ver usuarios</a>
 </body>
 </html>

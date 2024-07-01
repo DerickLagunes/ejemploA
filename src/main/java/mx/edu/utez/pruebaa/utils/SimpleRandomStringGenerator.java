@@ -1,5 +1,7 @@
 package mx.edu.utez.pruebaa.utils;
 
+import java.util.Random;
+
 public class SimpleRandomStringGenerator {
 
     // Conjunto de caracteres permitidos

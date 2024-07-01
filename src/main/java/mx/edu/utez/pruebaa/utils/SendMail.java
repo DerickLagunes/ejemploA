@@ -1,7 +1,7 @@
 package mx.edu.utez.pruebaa.utils;
 
-import javax.mail.*;
-import javax.mail.internet.*;
+import jakarta.mail.*;
+import jakarta.mail.internet.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Properties;

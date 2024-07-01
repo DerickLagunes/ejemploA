@@ -22,6 +22,7 @@
 
 
     </form>
+    <a href="solicitudRecuperacion.jsp">¿Olvisdaste tu contraseña?</a>
     <a href="registroUsuario.jsp">Registrarme</a>
     <a href="gestionUsuario.jsp">Ver usuarios</a>
 </body>

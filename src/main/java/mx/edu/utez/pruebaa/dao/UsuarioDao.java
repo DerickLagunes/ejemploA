@@ -146,4 +146,42 @@ public class UsuarioDao {
         }
         return flag;
     }
+
+    public Usuario getOne(String correo) {
+        Usuario usuario = new Usuario();
+        String query = "select * from Usuario where correo = ?;";
+        try {
+            Connection con = DatabaseConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1,correo);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                usuario.setId(rs.getInt("id"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setContra(rs.getString("contra"));
+                usuario.setCorreo(rs.getString("correo"));
+                usuario.setEstado(rs.getBoolean("estado"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return usuario;
+    }
+
+    public boolean updateCodigo(Usuario u, String codigo) {
+        boolean flag = false;
+        String query = "update usuario set codigo = ? where id = ?";
+        try{
+            Connection con = DatabaseConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1,codigo);
+            ps.setInt(2,u.getId());
+            if(ps.executeUpdate()>0){
+                flag = true;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
 }

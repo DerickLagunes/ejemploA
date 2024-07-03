@@ -6,16 +6,18 @@ public class Usuario {
     private String contra;
     private String correo;
     private boolean estado;
+    private String codigo;
 
     public Usuario() {
     }
 
-    public Usuario(int id, String nombre, String contra, String correo, boolean estado) {
+    public Usuario(int id, String nombre, String contra, String correo, boolean estado, String codigo) {
         this.id = id;
         this.nombre = nombre;
         this.contra = contra;
         this.correo = correo;
         this.estado = estado;
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -56,5 +58,13 @@ public class Usuario {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 }

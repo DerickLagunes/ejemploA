@@ -5,6 +5,63 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+ .body-image{
+  background-image:url('../img/Fondo_Inicio_halcon.png');
+  background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center center; /* Centra la imagen */
+  background-attachment: fixed; /* Fija la imagen al fondo */
+ }
+ .caja {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /*  Ajusta la altura */
+}
+
+.custom-header {
+  background-color: #002E60; 
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ajusta el z-index */
+  position: fixed; /* Fija el header en la parte superior de la pantalla */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra para darle profundidad */
+}
+
+.custom-header .nav-link {
+  color: #ffffff !important; /* Color de texto para los enlaces dentro del header */
+}
+
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.separator {
+  width: 75%;
+  border: none;
+  border-top: 6px solid #002E60; /* Cambia el color y el grosor de la línea */
+  margin: 5px 0; /* Ajusta el espacio alrededor de la línea */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+.social-icons a {
+  color: #009475;
+  font-size: 15px;
+  text-decoration: none;
+}
+.social-icons a:hover {
+  color: #00947580;
+}
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

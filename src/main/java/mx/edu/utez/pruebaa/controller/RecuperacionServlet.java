@@ -7,7 +7,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import mx.edu.utez.pruebaa.dao.UsuarioDao;
 import mx.edu.utez.pruebaa.model.Usuario;
-import mx.edu.utez.pruebaa.utils.SendMail;
 import mx.edu.utez.pruebaa.utils.SimpleRandomStringGenerator;
 
 import java.io.IOException;
@@ -23,19 +22,11 @@ public class RecuperacionServlet extends HttpServlet {
         if(u.isEstado()){
             //Significa que además de que si existe si puede cambiar su contraseña
             //2) Generar un código unico para ese usuario
-            String codigo = SimpleRandomStringGenerator.generateRandomString(256);
+            String codigo = SimpleRandomStringGenerator.generateRandomString(20);
             //3) Insertar ese código en la base de datos
-            dao.insertCodigo(u,codigo);
+            dao.updateCodigo(u,codigo);
             //4) Generar un correo electronico donde exista un enlace a un Servlet que maneje el código
-            SendMail sm = new SendMail();
-            sm.sendEmail(
-                    "dericklagunes@utez.edu.mx",
-                    "Prueba de envio de mensaje",
-                    "<h1>Hola mundo</h1>" +
-                            "<p>Este es mi primer correo electronico desde Java</p>" +
-                            "<a href=\"solicitudRecuperacion?codigo="+codigo+"\">Click aqui para recuperar la contraseña</a>",
-                    null
-            );
+
         }else{
             //No existe o no puede cambiar su contraseña
             req.getSession().setAttribute("mensaje","El usuario no existe en la BD");

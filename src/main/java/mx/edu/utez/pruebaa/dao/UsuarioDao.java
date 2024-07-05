@@ -184,4 +184,43 @@ public class UsuarioDao {
         }
         return flag;
     }
+
+    public boolean existe(String codigo) {
+        boolean flag = false;
+        String query = "select * from usuario where codigo = ?";
+        try{
+            Connection con = DatabaseConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1,codigo);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                flag = true;
+            }
+            rs.close();
+            ps.close();
+            con.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    public boolean updateContrasena(String contra, String codigo) {
+        boolean flag = false;
+        String query = "update usuario set contra = sha2(?,256), codigo = null where codigo = ?";
+        try{
+            Connection con = DatabaseConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1,contra);
+            ps.setString(2, codigo);
+            if(ps.executeUpdate()>0){
+                flag = true;
+            }
+            ps.close();
+            con.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
 }

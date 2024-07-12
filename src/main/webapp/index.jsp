@@ -25,5 +25,9 @@
     <a href="solicitudRecuperacion.jsp">¿Olvisdaste tu contraseña?</a>
     <a href="registroUsuario.jsp">Registrarme</a>
     <a href="gestionUsuario.jsp">Ver usuarios</a>
+    <br>
+    <a href="pdf">Generar Archivo PDF</a>
+<br>
+<a href="ejemplojstl">EjemploJSTL</a>
 </body>
 </html>
